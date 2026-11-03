@@ -1,47 +1,62 @@
-# Threat-Detection-Behavioral-AI-Portfolio
-### Hind Omar Sahli - Saipem GDP SCM Data Analyst Applicant | Riyadh, KSA
+# HIND OMAR SAHLI - Technical Portfolio
+### Cybersecurity & Data Analysis | Riyadh, KSA | Academy of Learning | 2026
 
-## 🛡️ Intelligent Threat Detection using AI & Behavioral Analysis
+## 👩‍💻 About Me
+Technical professional specializing in Cybersecurity, Network Infrastructure, and Data Analytics. Based in Riyadh, KSA. Passionate about AI-driven threat detection and behavioral analysis.
 
-**Objective:** Developed an intelligent threat detection system leveraging behavioral analytics and machine learning to identify suspicious activities in real-time.
+**Location: Riyadh, KSA**
+**Contact: github.com/hindsahly-ui**
 
-**The model analyzes user and system behavior patterns to detect anomalies, achieving 88.40% accuracy on validated datasets. Enhanced detection of insider threats and unauthorized access through advanced feature engineering and ensemble methods.**
+---
+
+### 🔹 PROJECT 1: Intelligent Threat Detection using AI & Behavioral Analysis
+
+**Dataset:** 5000 simulated network records (41 features) mimicking NSL-KDD
+**Tools:** Python, Pandas, Scikit-learn, StandardScaler
+**Model:** Random Forest n_estimators=100, train_test_split 80/20
+**Results:** 88.40% Accuracy (simulated) - Target 96.5% with real NSL-KDD
+**Confusion Matrix:** 565 TN | 319 TP | 23 FP (2.3%) | 93 FN
+**Skills:** Behavioral Baseline, Anomaly Detection, Feature Engineering
 
 ---
 
-### 📊 Project Overview
-- **Dataset:** 5000 records, 41 features (NSL-KDD simulated)
-- **Location:** Riyadh, KSA
-- **Academy:** Academy of Learning | 2026
-- **Role Target:** Saipem GDP - Supply Chain Management Data Analyst
-- **GitHub:** github.com/hindsahly-ui/Threat-Detection-Behavioral-AI-Portfolio
+### 🔹 PROJECT 2: Secure Network Infrastructure (LAN + Site-to-Site VPN)
 
-### 🎯 Key Features
-- Real-time behavioral anomaly detection
-- Feature engineering on user/system activity logs
-- Ensemble model combining Random Forest & XGBoost
-- Data preprocessing and outlier detection pipeline
-
-### 🛠️ Technologies Used
-- Python • Scikit-Learn • Pandas • Jupyter • StandardScaler
-- RandomForestClassifier (n_estimators=100)
-- Train_test_split 80/20 • Confusion Matrix Analysis
-
-### 📈 Results
-- **Accuracy:** 88.40% on test dataset (20% split)
-- **Confusion Matrix:** 565 TN | 319 TP | 23 FP (2.3%) | 93 FN
-- **Focus Area:** Behavioral AI • Risk Assessment • SCM Data Analytics
-- **Skills Demonstrated:** Behavioral Baseline, Risk Assessment, Supply Chain Risk Detection
-
-### 🔗 Portfolio Links
-- **GitHub:** github.com/hindsahly-ui/Threat-Detection-Behavioral-AI-Portfolio
-- **LinkedIn:** Hind Omar Sahli - Riyadh, KSA
-- **Target Company:** Saipem - GDP Program
-
-### 📁 Files in this Repository
-1. `threat_detection.py` - Full Python implementation
-2. `README.md` - Project documentation
+**Topology:** 2 Routers, 2 Switches, PCs
+**Cables:** Ethernet (PC-Switch, Switch-Router), Serial DCE/DTE (Router-Router)
+**Config:** IP addressing, no shutdown, ip route 0.0.0.0 0.0.0.0 <next-hop>
+**VPN:** ISAKMP policy 10 (AES, SHA, pre-share, group2), IPsec TS esp-aes esp-sha-hmac
+**ACL:** access-list 110 permit ip 192.168.1.0 0.0.0.255 192.168.2.0 0.0.0.255
+**Verification:** ping 192.168.2.2, show crypto session/isakmp/ipsec sa -> ACTIVE
 
 ---
-**Location: Riyadh, KSA | 2026**
-**Contact: Hind Omar Sahli - Data Science & AI Portfolio**
+
+### 🔹 PROJECT 3: Network Traffic Analysis with Wireshark
+
+**Captured:** DNS, TCP, TLSv1.3, ARP
+**Analyzed:** 172.20.10.2 -> catalog,gamepass.com (95.178.84.17)
+**Detected:** TCP Retransmissions, Client Hello SNI, Server Hello
+**Skills:** DNS Analysis, TCP/IP, TLSv1.3, Pattern Recognition
+
+---
+
+### 🔹 PROJECT 4: User Feedback & Data Collection (132 Responses)
+
+**Survey:** Google Forms - 132 participants
+**Demographics:** Gender (69.2% Male), Age (30.2% <20, 31.1% 20-30, 28.5% 30-40)
+**Result:** Average Rating 4.48/5, 72.7% (95 users) rated 5 stars
+**Tools:** Data Visualization, Descriptive Statistics, UX Analysis
+**Relevance:** Supplier Performance Evaluation for SCM
+
+---
+
+### 🛠️ Core Skills
+Python | Scikit-Learn | Network Security | Wireshark | VPN | TCP/IP | Data Analysis | Behavioral AI | Supply Chain Analytics
+
+### 📁 Repository Contents
+- Project documentation and visuals
+- Source code and configurations
+- Analysis reports
+
+---
+**HIND OMAR SAHLI | Contact: Riyadh, KSA | Academy of Learning | 2026**

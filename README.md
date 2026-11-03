@@ -1,28 +1,66 @@
-# Intelligent Threat Detection | 88.4% Accuracy | Saipem GDP SCM
+# HIND OMAR SAHLI - Intelligent Threat Detection using AI & Behavioral Analysis
+# Technical Portfolio for Saipem GDP - Supply Chain Data Analyst
+# Contact: Riyadh, KSA | Academy of Learning | 2026
 
-**Hind Omar Sahli - Data Analyst Portfolio**
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
-## Live Results
+# 1. Dataset: 5000 simulated network records (41 features) mimicking NSL-KDD
+np.random.seed(42)
+n_samples = 5000
+n_features = 41
 
-![Survey Dashboard - 132 Users - 4.48/5](WhatsApp%20Image%202026-11-03%20at%209.04.33%20PM.jpeg)
+# محاكاة 41 feature مثل NSL-KDD
+X = np.random.randn(n_samples, n_features)
+# إضافة بعض الأنماط السلوكية
+y = (X[:, 0] + X[:, 1]*1.5 + X[:, 5] - X[:, 10] > 1).astype(int)
+# 0 = Normal, 1 = Anomaly/Attack
+y = np.where(np.random.rand(n_samples) < 0.1, 1 - y, y) # 10% noise
 
-![Technical Portfolio - 4 Projects](WhatsApp%20Image%202026-11-03%20at%209.04.28%20PM.jpeg)
+feature_names = [f'feature_{i}' for i in range(n_features)]
+df = pd.DataFrame(X, columns=feature_names)
+df['label'] = y
 
-## Project 1: Behavioral AI Threat Detection (Main)
-- **Accuracy: 88.40%** on 5000 records, 41 features (NSL-KDD simulation)
-- **Confusion Matrix:** TN 565 | TP 319 | FP 23 (2.3% error) | FN 93
-- **Stack:** Python, Pandas, Scikit-learn, Random Forest, StandardScaler
-- **Target:** 96.5% with real NSL-KDD dataset
+print(f"Dataset Shape: {df.shape}")
+print(f"Class Distribution:\n{df['label'].value_counts()}")
 
-## Project 2: Secure LAN + Site-to-Site VPN
-- ISAKMP Policy 10 (AES, SHA, pre-share, group2) - IPsec ACTIVE
+# 2. Tools: Python, Pandas, Scikit-learn, StandardScaler
+X = df.drop('label', axis=1)
+y = df['label']
 
-## Project 3: Wireshark Traffic Analysis
-- DNS, TCP Retransmission, TLSv1.3 Analysis
+# 3. Model: Random Forest n_estimators=100, train_test_split 80/20
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
 
-## Project 4: User Data Collection
-- 132 Responses, Avg Rating 4.48/5, 72.7% rated 5 stars
-- Skills: Data Collection, Survey Design, Dashboarding
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
 
-**For Saipem GDP - Supply Chain Data Analyst**
-Location: Rafha, KSA | 2026
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train_scaled, y_train)
+
+# 4. Results & Evaluation
+y_pred = model.predict(X_test_scaled)
+
+accuracy = accuracy_score(y_test, y_pred)
+cm = confusion_matrix(y_test, y_pred)
+TN, FP, FN, TP = cm.ravel()
+
+print("\n" + "="*50)
+print(f"Results: {accuracy*100:.2f}% Accuracy (simulated) - Target 96.5% with real NSL-KDD")
+print(f"Confusion Matrix: {TN} TN | {TP} TP | {FP} FP ({FP/len(y_test)*100:.1f}%) | {FN} FN")
+print("="*50)
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred, target_names=['Normal', 'Attack']))
+
+# 5. Skills: Behavioral Baseline, Anomaly Detection, Feature Engineering
+importances = pd.DataFrame({
+    'feature': feature_names,
+    'importance': model.feature_importances_
+}).sort_values('importance', ascending=False)
+
+print("\nTop 10 Important Features (Behavioral Baseline):")
+print(importances.head(10))

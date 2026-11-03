@@ -1,5 +1,7 @@
 # HIND OMAR SAHLI - Technical Portfolio
 ### Cybersecurity & Data Analysis | Riyadh, KSA | Academy of Learning | 2026
+![Hind Omar Sahli Portfolio](hind-omar-sahli-portfolio-2026.png)
+![Portfolio Riyadh](portfolio-hind-sahli-riyadh.png)
 
 ## 👩‍💻 About Me
 Technical professional specializing in Cybersecurity, Network Infrastructure, and Data Analytics. Based in Riyadh, KSA. Passionate about AI-driven threat detection and behavioral analysis.
